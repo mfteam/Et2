@@ -12,6 +12,7 @@ public class User {
     private String nickName;
     private String email;
     private String password;
+    private String key;
 
     public User(){}
 
@@ -43,5 +44,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }

@@ -14,7 +14,7 @@ public abstract class BaseViewModel {
     protected Context context;
     protected DatabaseReference mDatabase;
 
-    protected BaseViewModel(Context context){
+    public BaseViewModel(Context context){
         this.context = context;
         mDatabase = FirebaseDatabase.getInstance().getReference();
     }
