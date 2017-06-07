@@ -12,6 +12,7 @@ import mfteam.com.et2.databinding.FragmentSplashBinding;
 import mfteam.com.et2.view.BaseFragment;
 import mfteam.com.et2.view.login.LoginFragment;
 import mfteam.com.et2.view.register.RegisterFragment;
+import mfteam.com.et2.view.sendpost.SendPostFragment;
 import mfteam.com.et2.viewmodel.splash.SplashViewModel;
 
 /**
@@ -37,7 +38,7 @@ public class SplashFragment extends BaseFragment implements SplashViewModel.Spla
     @Override
     public void onSplashFinished() {
         if (navigationListener != null){
-            navigationListener.onChangeFragment(new LoginFragment());
+            navigationListener.onChangeFragment(new SendPostFragment());
         }
     }
 }

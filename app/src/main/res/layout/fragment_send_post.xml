@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="mfteam.com.et2.viewmodel.sendpost.SendPostViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000"
+        >
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                app:imageUrl="@{viewModel.imageUrl}"/>
+
+            <RelativeLayout
+                android:id="@+id/send_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/transparent"
+                android:gravity="bottom"
+                android:padding="8dp">
+
+                <FrameLayout
+                    android:id="@+id/send_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icons8_sent_96" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/add_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:onClick="@{viewModel::onAddImageClicked}">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icons8_add_image_96" />
+                </FrameLayout>
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:focusable="true"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:padding="4dp"
+                    android:layout_toLeftOf="@+id/send_btn"
+                    android:layout_toRightOf="@+id/add_image"
+                    android:focusableInTouchMode="true"
+                    android:maxLength="50"
+                    android:maxLines="3"
+                    android:textColor="#f39c12"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

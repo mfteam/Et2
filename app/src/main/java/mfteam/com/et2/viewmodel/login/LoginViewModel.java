@@ -9,9 +9,14 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import mfteam.com.et2.model.GroupModel;
 import mfteam.com.et2.model.User;
 import mfteam.com.et2.util.SimpleTextWatcher;
 import mfteam.com.et2.viewmodel.BaseViewModel;
@@ -37,7 +42,6 @@ public class LoginViewModel extends BaseViewModel {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() != null) {
-                    Log.d("Erdem", dataSnapshot.getValue() + "");
                     User user = null;
                     for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                         user = userSnapshot.getValue(User.class);
@@ -84,6 +88,7 @@ public class LoginViewModel extends BaseViewModel {
     }
 
     public void onClick(View view) {
+//        createGroup();
         loginUser();
     }
 
