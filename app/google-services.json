@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "340001519264",
+    "firebase_url": "https://et2database.firebaseio.com",
+    "project_id": "et2database",
+    "storage_bucket": "et2database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340001519264:android:5cb2f2d0b79bf3bb",
+        "android_client_info": {
+          "package_name": "mfteam.com.et2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "340001519264-u197an03bom4dl2suerid16ge0ljui46.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXh1z9W-1FZAoEUbmK6e_dUs6pmzFQvgE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

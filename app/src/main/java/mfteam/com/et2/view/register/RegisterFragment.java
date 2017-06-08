@@ -18,15 +18,15 @@ import mfteam.com.et2.viewmodel.register.RegisterViewModel;
 
 public class RegisterFragment extends BaseFragment{
 
-    private RegisterViewModel viewModel;
-    private FragmentRegisterBinding binding;
+    private RegisterViewModel registerViewModel;
+    private FragmentRegisterBinding registerBinding;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register,container,false);
-        viewModel = new RegisterViewModel(getActivity());
-        binding.setViewModel(viewModel);
-        return binding.getRoot();
+        registerBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_register,container,false);
+        registerViewModel = new RegisterViewModel(getActivity());
+        registerBinding.setViewModel(registerViewModel);
+        return registerBinding.getRoot();
     }
 }
