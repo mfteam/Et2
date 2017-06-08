@@ -15,6 +15,7 @@ public class Bebikto {
 
     @BindingAdapter({"bind:imageUrl"})
     public static void loadImage(ImageView imageView, String url){
-        Picasso.with(imageView.getContext()).load(url).placeholder(R.drawable.deneme).into(imageView);
+        if (url == null)return;
+        Picasso.with(imageView.getContext()).load(url).rotate(Util.getCameraPhotoOrientation(url)).placeholder(R.drawable.deneme).into(imageView);
     }
 }

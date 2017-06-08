@@ -12,6 +12,7 @@ import android.view.WindowManager;
 
 import mfteam.com.et2.R;
 import mfteam.com.et2.databinding.FragmentSendPostBinding;
+import mfteam.com.et2.util.FileUtil;
 import mfteam.com.et2.view.BaseFragment;
 import mfteam.com.et2.viewmodel.sendpost.SendPostViewModel;
 
@@ -32,7 +33,6 @@ public class SendPostFragment extends BaseFragment implements SendPostViewModel.
         viewModel = new SendPostViewModel(getActivity(), this);
         binding.setViewModel(viewModel);
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-
         return binding.getRoot();
     }
 
@@ -49,6 +49,8 @@ public class SendPostFragment extends BaseFragment implements SendPostViewModel.
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE && resultCode != 0){
             if (data != null && data.getData() != null){
+                viewModel.imagePath.set(FileUtil.getPath(getContext(),data.getData()));
+                Log.d("SesVer",FileUtil.getPath(getContext(),data.getData()));
                 viewModel.imageUrl.set(data.getData().toString());
             }
         }
