@@ -18,20 +18,19 @@ import mfteam.com.et2.viewmodel.login.LoginViewModel;
 
 public class LoginFragment extends BaseFragment implements LoginViewModel.LoginListener{
 
-    private LoginViewModel viewModel;
-    private FragmentLoginBinding binding;
+    private LoginViewModel loginViewModel;
+    private FragmentLoginBinding loginBinding;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        viewModel = new LoginViewModel(getActivity(), this);
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login,container,false);
-        binding.setViewModel(viewModel);
-        return binding.getRoot();
+        loginViewModel = new LoginViewModel(getActivity(), this);
+        loginBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_login,container,false);
+        loginBinding.setViewModel(loginViewModel);
+        return loginBinding.getRoot();
     }
 
     @Override
     public void onLoginSuccess() {
-
     }
 }
