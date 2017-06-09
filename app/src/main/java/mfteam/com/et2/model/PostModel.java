@@ -11,7 +11,7 @@ import com.google.firebase.database.IgnoreExtraProperties;
 @IgnoreExtraProperties
 public class PostModel {
 
-    private Uri imageUrl;
+    private String imageUrl;
     private String userKey;
     private String description;
     private long likeCount;
@@ -20,7 +20,7 @@ public class PostModel {
 
     public PostModel() {}
 
-    public PostModel(String key, Uri imageUrl, String description, long likeCount, long dislikeCount, double createdTs) {
+    public PostModel(String userKey, String imageUrl, String description, long likeCount, long dislikeCount, double createdTs) {
         this.imageUrl = imageUrl;
         this.userKey = userKey;
         this.description = description;
@@ -29,11 +29,11 @@ public class PostModel {
         this.createdTs = createdTs;
     }
 
-    public Uri getImageUrl() {
+    public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(Uri imageUrl) {
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 

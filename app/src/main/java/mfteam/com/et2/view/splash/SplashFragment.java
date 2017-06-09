@@ -10,6 +10,7 @@ import mfteam.com.et2.R;
 import mfteam.com.et2.databinding.FragmentSplashBinding;
 import mfteam.com.et2.view.BaseFragment;
 import mfteam.com.et2.view.main.TimeLineFragment;
+import mfteam.com.et2.view.sendpost.SendPostFragment;
 import mfteam.com.et2.viewmodel.splash.SplashViewModel;
 
 /**
@@ -40,7 +41,7 @@ public class SplashFragment extends BaseFragment implements SplashViewModel.Spla
     @Override
     public void onSplashFinished() {
         if (navigationListener != null){
-            navigationListener.onChangeFragment(new TimeLineFragment());
+            navigationListener.onChangeFragment(new SendPostFragment());
         }
     }
 }
