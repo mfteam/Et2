@@ -1,5 +1,9 @@
 package mfteam.com.et2.firebase;
 
+import com.google.firebase.database.DataSnapshot;
+
+import java.util.List;
+
 import mfteam.com.et2.firebase.interfaces.FirebaseOperationListener;
 import mfteam.com.et2.firebase.interfaces.ManagerOperation;
 import mfteam.com.et2.model.User;
@@ -21,6 +25,11 @@ public class UserManager extends BaseFirebaseManager implements ManagerOperation
     }
 
     @Override
+    public void insert(User model, FirebaseOperationListener<User> listener) {
+
+    }
+
+    @Override
     public void delete(User model, boolean isSuccess) {
 
     }
@@ -28,5 +37,10 @@ public class UserManager extends BaseFirebaseManager implements ManagerOperation
     @Override
     public void update(User model, FirebaseOperationListener<User> listener) {
 
+    }
+
+    @Override
+    public List<User> createModelFromDataSnapshot(DataSnapshot dataSnapshot) {
+        return null;
     }
 }

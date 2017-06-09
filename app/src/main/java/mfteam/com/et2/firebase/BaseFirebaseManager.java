@@ -3,6 +3,8 @@ package mfteam.com.et2.firebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.List;
+
 import mfteam.com.et2.firebase.interfaces.ManagerOperation;
 
 /**
@@ -20,4 +22,5 @@ public abstract class BaseFirebaseManager{
     }
 
     protected abstract void setRefDb();
+
 }
