@@ -16,7 +16,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 
-import mfteam.com.et2.firebase.PostManager;
+import mfteam.com.et2.firebase.manager.PostManager;
 import mfteam.com.et2.firebase.interfaces.FirebaseOperationListener;
 import mfteam.com.et2.model.PostModel;
 import mfteam.com.et2.viewmodel.BaseViewModel;

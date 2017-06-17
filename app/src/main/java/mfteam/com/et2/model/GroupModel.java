@@ -12,6 +12,7 @@ public class GroupModel {
 
     private String key;
     private String name;
+    private String avatar;
     private List<User> users;
 
     public GroupModel(){}

@@ -1,4 +1,4 @@
-package mfteam.com.et2.firebase;
+package mfteam.com.et2.firebase.manager;
 
 import com.google.firebase.database.DataSnapshot;
 
@@ -6,6 +6,7 @@ import java.util.List;
 
 import mfteam.com.et2.firebase.interfaces.FirebaseOperationListener;
 import mfteam.com.et2.firebase.interfaces.ManagerOperation;
+import mfteam.com.et2.model.GroupModel;
 import mfteam.com.et2.model.User;
 
 /**
@@ -13,6 +14,15 @@ import mfteam.com.et2.model.User;
  */
 
 public class UserManager extends BaseFirebaseManager implements ManagerOperation<User> {
+
+
+    public UserManager(){
+        super();
+    }
+
+    public List<GroupModel> getGroupsOfUser(String userKey){
+        return null;
+    }
 
     @Override
     protected void setRefDb() {

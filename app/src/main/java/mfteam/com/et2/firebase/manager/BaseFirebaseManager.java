@@ -1,4 +1,4 @@
-package mfteam.com.et2.firebase;
+package mfteam.com.et2.firebase.manager;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
