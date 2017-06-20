@@ -9,42 +9,38 @@ import java.util.List;
 
 import mfteam.com.et2.firebase.interfaces.FirebaseOperationListener;
 import mfteam.com.et2.firebase.interfaces.ManagerOperation;
-import mfteam.com.et2.model.GroupModel;
+import mfteam.com.et2.model.UserGroupModel;
 
 /**
- * Created by redugsi on 16/06/17.
+ * Created by redugsi on 19/06/17.
  */
 
-public class GroupManager extends BaseFirebaseManager implements ManagerOperation<GroupModel> {
+public class UserGroupsManager extends BaseFirebaseManager implements ManagerOperation<UserGroupModel> {
 
-    public GroupManager(){
+    public UserGroupsManager() {
         super();
     }
 
-    //Override stuff1
     @Override
-    protected void setRefDb() {
-        mRef = mDb.child("groups");
-    }
-
-    @Override
-    public void insert(final GroupModel model, String key, final FirebaseOperationListener<GroupModel> listener) {
+    public void insert(final UserGroupModel model, String key, final FirebaseOperationListener<UserGroupModel> listener) {
         mRef.child(key).setValue(model, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                if (databaseError != null){
-                    listener.onSuccess(model);
+                if (databaseError != null) {
+                    if (listener != null) {
+                        listener.onSuccess(model);
+                    }
                 }
             }
         });
     }
 
     @Override
-    public void insert(final GroupModel model, final FirebaseOperationListener<GroupModel> listener) {
+    public void insert(final UserGroupModel model, final FirebaseOperationListener<UserGroupModel> listener) {
         mRef.push().setValue(model, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                if (databaseError != null){
+                if (databaseError != null) {
                     listener.onSuccess(model);
                 }
             }
@@ -52,21 +48,26 @@ public class GroupManager extends BaseFirebaseManager implements ManagerOperatio
     }
 
     @Override
-    public void delete(GroupModel model, boolean isSuccess) {
+    public void delete(UserGroupModel model, boolean isSuccess) {
 
     }
 
     @Override
-    public void update(GroupModel model, FirebaseOperationListener<GroupModel> listener) {
+    public void update(UserGroupModel model, FirebaseOperationListener<UserGroupModel> listener) {
 
     }
 
     @Override
-    public List<GroupModel> createModelFromDataSnapshot(DataSnapshot dataSnapshot) {
-        List<GroupModel> postModelList = new ArrayList<GroupModel>();
+    public List<UserGroupModel> createModelFromDataSnapshot(DataSnapshot dataSnapshot) {
+        List<UserGroupModel> postModelList = new ArrayList<>();
         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-            postModelList.add(snapshot.getValue(GroupModel.class));
+            postModelList.add(snapshot.getValue(UserGroupModel.class));
         }
         return postModelList;
+    }
+
+    @Override
+    protected void setRefDb() {
+        mRef = mDb.child("userGroups");
     }
 }
