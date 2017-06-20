@@ -4,21 +4,11 @@
         <variable
             name="timelineViewModel"
             type="mfteam.com.et2.model.User" />
-
-        <variable
-            name="handler"
-            type="mfteam.com.et2.interfaces.TimeLineItemClick" />
     </data>
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_margin="5dp"
-        android:onClick="@{handler::onImageClick }">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@{timelineViewModel.nickName}"/>
-    </android.support.v7.widget.CardView>
+            />
 </layout>

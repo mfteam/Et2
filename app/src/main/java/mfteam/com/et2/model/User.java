@@ -11,20 +11,47 @@ import java.util.List;
 @IgnoreExtraProperties
 public class User {
 
-    private String nickName;
-    private String email;
-    private String password;
-    private String key;
-
+    private String mUserName;
+    private String mUserLastName;
+    private String mUserNickName;
+    private String mUserEmail;
+    private String mUserPassword;
     private List<GroupModel> groups;
 
     public User(){}
 
-    public User(String nickName, String email, String password, List<GroupModel> groups) {
-        this.nickName = nickName;
-        this.email = email;
-        this.password = password;
+    public User(String mUserName , String mUserLastName , String mUserNickName,
+                String mUserEmail, String mUserPassword, List<GroupModel> groups) {
+        this.mUserName = mUserName;
+        this.mUserLastName = mUserLastName;
+        this.mUserNickName = mUserNickName;
+        this.mUserEmail = mUserEmail;
+        this.mUserPassword = mUserPassword;
         this.groups = groups;
+    }
+
+    public String getmUserName() {
+        return mUserName;
+    }
+
+    public void setmUserName(String mUserName) {
+        this.mUserName = mUserName;
+    }
+
+    public String getmUserLastName() {
+        return mUserLastName;
+    }
+
+    public void setmUserLastName(String mUserLastName) {
+        this.mUserLastName = mUserLastName;
+    }
+
+    public String getmUserNickName() {
+        return mUserNickName;
+    }
+
+    public void setmUserNickName(String mUserNickName) {
+        this.mUserNickName = mUserNickName;
     }
 
     public List<GroupModel> getGroups() {
@@ -35,35 +62,19 @@ public class User {
         this.groups = groups;
     }
 
-    public String getNickName() {
-        return nickName;
+    public String getmUserEmail() {
+        return mUserEmail;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setmUserEmail(String mUserEmail) {
+        this.mUserEmail = mUserEmail;
     }
 
-    public String getEmail() {
-        return email;
+    public String getmUserPassword() {
+        return mUserPassword;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
+    public void setmUserPassword(String mUserPassword) {
+        this.mUserPassword = mUserPassword;
     }
 }

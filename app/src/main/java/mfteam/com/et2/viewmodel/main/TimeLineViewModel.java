@@ -33,20 +33,20 @@ public class TimeLineViewModel extends BaseViewModel{
 
     private void getImageFromDatabase() {
         mUserData = new ArrayList<>();
-        Query q = mDatabase.child("users").orderByChild("nickName");
-        q.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot shot : dataSnapshot.getChildren()){
-                    mUserData.add(shot.getValue(User.class));
-                }
-                timeLineDataListener.userData(mUserData);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+//        Query q = mDatabase.child("users").orderByChild("nickName");
+//        q.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot shot : dataSnapshot.getChildren()){
+//                    mUserData.add(shot.getValue(User.class));
+//                }
+//                timeLineDataListener.userData(mUserData);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
     }
 }

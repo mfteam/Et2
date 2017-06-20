@@ -15,7 +15,7 @@ import mfteam.com.et2.model.User;
 import mfteam.com.et2.view.BaseFragment;
 import mfteam.com.et2.viewmodel.main.TimeLineViewModel;
 
-public class TimeLineFragment extends BaseFragment implements TimeLineDataListener {
+public class FragmentTimeLine extends BaseFragment implements TimeLineDataListener {
 
     private View mView;
     private RecyclerView mTimeLineRecyclerView;

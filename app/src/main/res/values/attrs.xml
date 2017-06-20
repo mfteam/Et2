@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Et2EditText">
+        <attr name="et2Type" format="string">
+            <enum name="et2" value="0" />
+            <enum name="white" value="1"/>
+            <enum name="red" value="2" />
+        </attr>
+    </declare-styleable>
+    
+    <declare-styleable name="Et2TextView">
+        <attr name="et2Font" format="string">
+            <enum name="book" value="0" />
+            <enum name="light" value="1" />
+            <enum name="medium" value="2" />
+            <enum name="thin" value="3" />
+            <enum name="xlight" value="4" />
+        </attr>
+    </declare-styleable>
+</resources>

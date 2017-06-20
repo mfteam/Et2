@@ -8,16 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import mfteam.com.et2.R;
 import mfteam.com.et2.databinding.FragmentSplashBinding;
+import mfteam.com.et2.interfaces.SplashOriantedListener;
 import mfteam.com.et2.view.BaseFragment;
-import mfteam.com.et2.view.main.TimeLineFragment;
-import mfteam.com.et2.view.sendpost.SendPostFragment;
 import mfteam.com.et2.viewmodel.splash.SplashViewModel;
 
 /**
  * Created by redugsi on 06/06/17.
  */
 
-public class SplashFragment extends BaseFragment implements SplashViewModel.SplashListener{
+public class FragmentSplash extends BaseFragment implements SplashOriantedListener {
 
     private SplashViewModel splashViewModel;
     private FragmentSplashBinding splashBinding;
@@ -33,15 +32,16 @@ public class SplashFragment extends BaseFragment implements SplashViewModel.Spla
     }
 
     private void init() {
+        hiddenStatusBar(getActivity());
         setStatusBarTranslucent(true);
         setToolBarEnabled(true);
         setDrawerEnabled(true);
     }
 
     @Override
-    public void onSplashFinished() {
+    public void splashOriantedListener(BaseFragment mFragment) {
         if (navigationListener != null){
-            navigationListener.onChangeFragment(new SendPostFragment());
+            navigationListener.onChangeFragment(mFragment);
         }
     }
 }

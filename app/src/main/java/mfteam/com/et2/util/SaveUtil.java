@@ -3,15 +3,11 @@ package mfteam.com.et2.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
-
 import java.lang.reflect.Type;
-import java.util.HashMap;
-
 import mfteam.com.et2.model.User;
 
 /**

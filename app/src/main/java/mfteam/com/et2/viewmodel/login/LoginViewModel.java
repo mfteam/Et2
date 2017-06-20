@@ -2,22 +2,15 @@ package mfteam.com.et2.viewmodel.login;
 
 import android.content.Context;
 import android.databinding.ObservableField;
+import android.support.annotation.NonNull;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
-import com.google.gson.Gson;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import mfteam.com.et2.model.GroupModel;
-import mfteam.com.et2.model.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import mfteam.com.et2.util.SimpleTextWatcher;
 import mfteam.com.et2.viewmodel.BaseViewModel;
 
@@ -38,34 +31,49 @@ public class LoginViewModel extends BaseViewModel {
     }
 
     private void loginUser() {
-        mDatabase.child("users").orderByChild("nickName").equalTo(nick.get()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getValue() != null) {
-                    User user = null;
-                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                        user = userSnapshot.getValue(User.class);
-                        user.setKey(userSnapshot.getKey());
-                    }
 
-                    if (user.getPassword().equals(password.get())) {
-                        if (loginListener != null){
-                            loginListener.onLoginSuccess();
-                        }
-                        Toast.makeText(context, "Başarılı Giriş!", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(context, "Yanlış şifre!", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(context, "Böyle bir kullanıcı adı yok", Toast.LENGTH_SHORT).show();
-                }
-            }
+//        if (mFirebaseAuth.getCurrentUser() == null) {
+//            Toast.makeText(context, "User Null Pointer", Toast.LENGTH_SHORT).show();
+//        }else{
+//            Log.d("LoginUserControl","User Login");
+//        }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+//        mFirebaseAuth.signInWithEmailAndPassword(nick.get(),password.get()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//                if (task.isSuccessful()) loginListener.onLoginSuccess();
+//            }
+//        });
 
-            }
-        });
+//        mDatabase.child("users").orderByChild("nickName").equalTo(nick.get()).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.getValue() != null) {
+//                    User user = null;
+//                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+//                        user = userSnapshot.getValue(User.class);
+//                        user.setKey(userSnapshot.getKey());
+//                    }
+//
+//                    if (user.getPassword().equals(password.get())) {
+//                        if (loginListener != null){
+//                            loginListener.onLoginSuccess();
+//                        }
+//                        Toast.makeText(context, "Başarılı Giriş!", Toast.LENGTH_SHORT).show();
+//                    }else{
+//                        Toast.makeText(context, "Yanlış şifre!", Toast.LENGTH_SHORT).show();
+//                    }
+//                } else {
+//                    Toast.makeText(context, "Böyle bir kullanıcı adı yok", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+
     }
 
     // Trash stuff

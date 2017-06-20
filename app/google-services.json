@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "340001519264-refr93eihjvmj0n08lh9goglq93a4qaj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mfteam.com.et2",
+            "certificate_hash": "5831ca36e5e9a7542da94c5cb1ee98d4f8db0c80"
+          }
+        },
+        {
           "client_id": "340001519264-jbir28lkev8k2hcve7h2nm0267trvo0u.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -3,12 +3,8 @@ package mfteam.com.et2.adapter;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 import java.util.ArrayList;
-import mfteam.com.et2.databinding.FragmentRecyclerviewItemBinding;
-import mfteam.com.et2.interfaces.TimeLineItemClick;
 import mfteam.com.et2.model.User;
 
 /**
@@ -32,8 +28,8 @@ public class TimeLineViewAdapter extends RecyclerView.Adapter<TimeLineViewHolder
         if (mInflater == null) {
             mInflater = LayoutInflater.from(parent.getContext());
         }
-        FragmentRecyclerviewItemBinding mBinding = FragmentRecyclerviewItemBinding.inflate(mInflater,parent,false);
-        return new TimeLineViewHolder(mBinding);
+//        FragmentRecyclerviewItemBinding mBinding = FragmentRecyclerviewItemBinding.inflate(mInflater,parent,false);
+        return null;
     }
 
     @Override
@@ -41,13 +37,13 @@ public class TimeLineViewAdapter extends RecyclerView.Adapter<TimeLineViewHolder
         User model = mTimeLineList.get(position);
         holder.bind(model);
 
-        final FragmentRecyclerviewItemBinding mBinding = holder.getModelBinding();
-        mBinding.setHandler(new TimeLineItemClick() {
-            @Override
-            public void onImageClick(View view) {
-                Toast.makeText(mContext, "Card Tıklandı", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        final FragmentRecyclerviewItemBinding mBinding = holder.getModelBinding();
+//        mBinding.setHandler(new TimeLineItemClick() {
+//            @Override
+//            public void onImageClick(View view) {
+//                Toast.makeText(mContext, "Card Tıklandı", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     @Override

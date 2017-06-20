@@ -1,38 +1,41 @@
 package mfteam.com.et2.viewmodel.splash;
 
 import android.content.Context;
-
+import android.view.View;
+import android.widget.Toast;
+import mfteam.com.et2.R;
+import mfteam.com.et2.interfaces.SplashOriantedListener;
+import mfteam.com.et2.view.login.FragmentSignIn;
+import mfteam.com.et2.view.register.FragmentSignUp;
 import mfteam.com.et2.viewmodel.BaseViewModel;
 
-/**
- * Created by redugsi on 06/06/17.
- */
+public class SplashViewModel extends BaseViewModel {
 
-public class SplashViewModel extends BaseViewModel{
+    private SplashOriantedListener listener;
 
-    private SplashListener listener;
-
-    public SplashViewModel(Context context, SplashListener listener) {
+    public SplashViewModel(Context context,SplashOriantedListener listener) {
         super(context);
         this.listener = listener;
-        startTimerToChangeFragment(3000);
     }
 
-    private void startTimerToChangeFragment(long ms){
-        new java.util.Timer().schedule(
-                new java.util.TimerTask() {
-                    @Override
-                    public void run() {
-                        if (listener != null){
-                            listener.onSplashFinished();
-                        }
-                    }
-                },
-                ms
-        );
-    }
-
-    public interface SplashListener{
-        void onSplashFinished();
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.splash_facebook:{
+                Toast.makeText(context, "Facebook", Toast.LENGTH_SHORT).show();
+                break;
+            }
+            case R.id.splash_twitter:{
+                Toast.makeText(context, "Twitter", Toast.LENGTH_SHORT).show();
+                break;
+            }
+            case R.id.splash_signin:{
+                listener.splashOriantedListener(new FragmentSignIn());
+                break;
+            }
+            case R.id.splash_signup:{
+                listener.splashOriantedListener(new FragmentSignUp());
+                break;
+            }
+        }
     }
 }

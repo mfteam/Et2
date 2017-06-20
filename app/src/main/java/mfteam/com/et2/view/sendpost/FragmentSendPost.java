@@ -20,7 +20,7 @@ import mfteam.com.et2.viewmodel.sendpost.SendPostViewModel;
  * Created by redugsi on 07/06/17.
  */
 
-public class SendPostFragment extends BaseFragment implements SendPostViewModel.SendPostListener{
+public class FragmentSendPost extends BaseFragment implements SendPostViewModel.SendPostListener{
 
     private final static int PICK_IMAGE = 10;
     private SendPostViewModel viewModel;

@@ -1,5 +1,6 @@
 package mfteam.com.et2.firebase.manager;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -15,6 +16,7 @@ public abstract class BaseFirebaseManager{
 
     protected DatabaseReference mDb;
     protected DatabaseReference mRef;
+    protected FirebaseAuth mAuth;
 
     protected BaseFirebaseManager(){
         mDb = FirebaseDatabase.getInstance().getReference();

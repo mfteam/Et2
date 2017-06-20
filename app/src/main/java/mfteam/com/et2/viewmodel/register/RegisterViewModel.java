@@ -3,17 +3,13 @@ package mfteam.com.et2.viewmodel.register;
 import android.content.Context;
 import android.databinding.ObservableField;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-
+import mfteam.com.et2.firebase.UserManager;
+import mfteam.com.et2.firebase.interfaces.FirebaseOperationListener;
+import mfteam.com.et2.interfaces.RegisterListener;
+import mfteam.com.et2.interfaces.RegisterUserComplatedListener;
 import mfteam.com.et2.model.User;
-import mfteam.com.et2.util.SaveUtil;
 import mfteam.com.et2.util.SimpleTextWatcher;
 import mfteam.com.et2.viewmodel.BaseViewModel;
 
@@ -21,21 +17,48 @@ import mfteam.com.et2.viewmodel.BaseViewModel;
  * Created by redugsi on 06/06/17.
  */
 
-public class RegisterViewModel extends BaseViewModel {
+public class RegisterViewModel extends BaseViewModel implements RegisterUserComplatedListener {
 
-    public ObservableField<String> nick = new ObservableField<>("");
-    public ObservableField<String> email = new ObservableField<>("");
-    public ObservableField<String> password = new ObservableField<>("");
+    private ObservableField<String> mUserName = new ObservableField<>();
+    private ObservableField<String> mUserLastName = new ObservableField<>();
+    private ObservableField<String> mUserNick = new ObservableField<>("");
+    private ObservableField<String> mUserEmail = new ObservableField<>("");
+    private ObservableField<String> mUserPassword = new ObservableField<>("");
 
-    public RegisterViewModel(Context context) {
+    private UserManager mUserManager;
+    private RegisterListener mRegisterListener;
+    private String mUserGetUuid;
+
+
+    public RegisterViewModel(Context context, RegisterListener registerListener) {
         super(context);
+        mUserManager = new UserManager(context,this);
+        this.mRegisterListener = registerListener;
+    }
+
+    public TextWatcher getUserNameTextWatcher(){
+        return new SimpleTextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mUserName.set(s.toString());
+            }
+        };
+    }
+
+    public TextWatcher getUserLastNameTextWatcher(){
+        return new SimpleTextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mUserLastName.set(s.toString());
+            }
+        };
     }
 
     public TextWatcher getNickTextWatcher() {
         return new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                nick.set(charSequence.toString());
+                mUserNick.set(charSequence.toString());
             }
         };
     }
@@ -44,7 +67,7 @@ public class RegisterViewModel extends BaseViewModel {
         return new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                email.set(charSequence.toString());
+                mUserEmail.set(charSequence.toString());
             }
         };
     }
@@ -53,49 +76,49 @@ public class RegisterViewModel extends BaseViewModel {
         return new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                password.set(charSequence.toString());
+                mUserPassword.set(charSequence.toString());
             }
         };
     }
 
-    public void onClick(View view){
+    public void onClick(View view) {
         createNewUser();
     }
 
     //FireBase Stuff
-    private void createNewUser(){
-        final User user = new User();
-        user.setNickName(nick.get());
-        user.setEmail(email.get());
-        user.setPassword(password.get());
-        final DatabaseReference userRef = mDatabase.child("users");
-        final String key = userRef.push().getKey();
-        Query q = userRef.orderByChild("nickName").equalTo(nick.get());
-        q.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getValue() != null){
-                    Toast.makeText(context,"Bu kullanıcı adı kullanılıyor",Toast.LENGTH_SHORT).show();
-                    return;
+    private void createNewUser() {
+        if (mUserManager.isCurrentUser()){
+            if (mUserManager.registerUser(mUserEmail.get(),mUserPassword.get())){
+                updateUI(new User());
+            }else{
+                mRegisterListener.onFailedRegister("");
+            }
+        }
+    }
+
+    private void updateUI(final User mNewUser) {
+        mNewUser.setmUserEmail(mUserEmail.get());
+        mNewUser.setmUserName(mUserNick.get());
+        mNewUser.setmUserPassword(mUserPassword.get());
+        mNewUser.setmUserLastName(mUserLastName.get());
+
+        if (mUserGetUuid != null) {
+            mUserManager.insert(mNewUser,mUserGetUuid,new FirebaseOperationListener<User>() {
+                @Override
+                public void onSuccess(User model) {
+                    mUserManager.loginUser(mNewUser.getmUserEmail(),mNewUser.getmUserPassword());
                 }
-                userRef.child(key).setValue(user, new DatabaseReference.CompletionListener() {
-                    @Override
-                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                        if (databaseError == null) {
-                            user.setKey(databaseReference.getKey());
-                            SaveUtil.setCurrentUser(context, user);
-                        }
-                    }
-                });
 
-            }
+                @Override
+                public void onError(String error) {
+                    Log.d("Hakan",error);
+                }
+            });
+        }
+    }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(context,"Bir hata oluştu :(",Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
+    @Override
+    public void registerUserComplatedListener(String mNewUserUuid) {
+        mUserGetUuid = mNewUserUuid;
     }
 }

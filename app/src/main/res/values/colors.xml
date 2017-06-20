@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="projectcolor">#FFA500</color>
+    <color name="color_white">#FFF</color>
+    <color name="color_facebook">#5890ff</color>
+    <color name="color_twitter">#1da1f2</color>
+    <color name="color_signbuttons">#000</color>
 </resources>

@@ -6,5 +6,4 @@ package mfteam.com.et2.util;
 
 public class Constants {
     public static final String BUCKEY_NAME = "gs://et2database.appspot.com";
-
 }
