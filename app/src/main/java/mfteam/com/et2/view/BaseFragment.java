@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.WindowManager;
-
 import com.facebook.CallbackManager;
-
 import mfteam.com.et2.interfaces.NavigationListener;
 
 /**

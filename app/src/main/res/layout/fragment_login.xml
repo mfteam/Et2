@@ -4,31 +4,37 @@
     <data>
         <variable
             name="viewModel"
-            type="mfteam.com.et2.viewmodel.login.LoginViewModel"/>
+            type="mfteam.com.et2.viewmodel.login.LoginViewModel" />
     </data>
 
-    <LinearLayout
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@color/projectcolor">
 
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/nick_name"
-            android:addTextChangedListener="@{viewModel.getNickTextWatcher}"/>
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/password"
-        android:addTextChangedListener="@{viewModel.getPasswordTextWatcher}"/>
+            <mfteam.com.et2.util.Et2EditText
+                style="@style/Et2EditTextStyle"
+                android:addTextChangedListener="@{viewModel.getNickTextWatcher}"
+                android:hint="@string/login_email_or_name" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/login"
-            android:onClick="@{viewModel.onClick}"/>
+            <mfteam.com.et2.util.Et2EditText
+                style="@style/Et2EditTextStyle"
+                android:addTextChangedListener="@{viewModel.getPasswordTextWatcher}"
+                android:hint="@string/register_password" />
 
-    </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel.onClick}"
+                android:text="@string/login" />
 
+        </LinearLayout>
+    </RelativeLayout>
 </layout>

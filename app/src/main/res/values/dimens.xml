@@ -5,4 +5,12 @@
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="edittext_margintop">10dp</dimen>
+    <dimen name="edittext_marginbottom">10dp</dimen>
+    <dimen name="edittext_marginright">20dp</dimen>
+    <dimen name="edittext_marginleft">20dp</dimen>
+    <dimen name="edittext_marginminheight">40dp</dimen>
+    <dimen name="edittext_marginpaddingleft">7dp</dimen>
+    <dimen name="edittext_marginpaddingright">7dp</dimen>
+    <dimen name="edittext_radius">5dp</dimen>
 </resources>

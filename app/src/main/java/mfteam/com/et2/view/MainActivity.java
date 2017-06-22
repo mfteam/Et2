@@ -20,11 +20,6 @@ public class MainActivity extends AppCompatActivity implements NavigationListene
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
-
-    @Override
     public void onChangeFragment(BaseFragment fragment) {
         fragment.setListener(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commitAllowingStateLoss();

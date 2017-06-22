@@ -16,18 +16,16 @@ import mfteam.com.et2.viewmodel.splash.SplashViewModel;
  * Created by redugsi on 06/06/17.
  */
 
-public class FragmentSplash extends BaseFragment implements SplashOriantedListener {
-
-    private SplashViewModel splashViewModel;
-    private FragmentSplashBinding splashBinding;
+public class FragmentSplash extends BaseFragment implements SplashOriantedListener{
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         init();
-        splashBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_splash,container,false);
-        splashViewModel = new SplashViewModel(getActivity(),this);
+        FragmentSplashBinding splashBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_splash, container, false);
+        SplashViewModel splashViewModel = new SplashViewModel(getActivity(), this);
         splashBinding.setViewModel(splashViewModel);
+//        splashBinding.splashFacebook.registerCallback(splashViewModel.mCallbackManager,splashViewModel);
         return splashBinding.getRoot();
     }
 

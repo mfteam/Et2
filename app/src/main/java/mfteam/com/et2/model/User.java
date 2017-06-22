@@ -11,47 +11,23 @@ import java.util.List;
 @IgnoreExtraProperties
 public class User {
 
-    private String mUserName;
-    private String mUserLastName;
-    private String mUserNickName;
-    private String mUserEmail;
-    private String mUserPassword;
+    private String userName;
+    private String userLastName;
+    private String userNickName;
+    private String userEmail;
+    private String userPassword;
     private List<GroupModel> groups;
 
     public User(){}
 
     public User(String mUserName , String mUserLastName , String mUserNickName,
                 String mUserEmail, String mUserPassword, List<GroupModel> groups) {
-        this.mUserName = mUserName;
-        this.mUserLastName = mUserLastName;
-        this.mUserNickName = mUserNickName;
-        this.mUserEmail = mUserEmail;
-        this.mUserPassword = mUserPassword;
+        this.userName = mUserName;
+        this.userLastName = mUserLastName;
+        this.userNickName = mUserNickName;
+        this.userEmail = mUserEmail;
+        this.userPassword = mUserPassword;
         this.groups = groups;
-    }
-
-    public String getmUserName() {
-        return mUserName;
-    }
-
-    public void setmUserName(String mUserName) {
-        this.mUserName = mUserName;
-    }
-
-    public String getmUserLastName() {
-        return mUserLastName;
-    }
-
-    public void setmUserLastName(String mUserLastName) {
-        this.mUserLastName = mUserLastName;
-    }
-
-    public String getmUserNickName() {
-        return mUserNickName;
-    }
-
-    public void setmUserNickName(String mUserNickName) {
-        this.mUserNickName = mUserNickName;
     }
 
     public List<GroupModel> getGroups() {
@@ -62,19 +38,43 @@ public class User {
         this.groups = groups;
     }
 
-    public String getmUserEmail() {
-        return mUserEmail;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setmUserEmail(String mUserEmail) {
-        this.mUserEmail = mUserEmail;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getmUserPassword() {
-        return mUserPassword;
+    public String getUserLastName() {
+        return userLastName;
     }
 
-    public void setmUserPassword(String mUserPassword) {
-        this.mUserPassword = mUserPassword;
+    public void setUserLastName(String userLastName) {
+        this.userLastName = userLastName;
+    }
+
+    public String getUserNickName() {
+        return userNickName;
+    }
+
+    public void setUserNickName(String userNickName) {
+        this.userNickName = userNickName;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 }
