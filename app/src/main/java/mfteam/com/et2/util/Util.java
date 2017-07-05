@@ -9,6 +9,8 @@ import android.view.inputmethod.InputMethodManager;
 
 import java.io.IOException;
 
+import mfteam.com.et2.model.User;
+
 /**
  * Created by redugsi on 07/06/17.
  */

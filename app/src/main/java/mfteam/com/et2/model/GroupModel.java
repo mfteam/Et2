@@ -25,6 +25,17 @@ public class GroupModel {
         this.name = name;
     }
 
+    public GroupModel(String name, String avatar) {
+        this.name = name;
+        this.avatar = avatar;
+    }
+
+    public GroupModel(String key, String name, String avatar) {
+        this.key = key;
+        this.name = name;
+        this.avatar = avatar;
+    }
+
     public String getKey() {
         return key;
     }
@@ -41,4 +52,11 @@ public class GroupModel {
         this.name = name;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 }

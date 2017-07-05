@@ -8,4 +8,6 @@
     <string name="register">Kayıt Ol!</string>
     <string name="login_email_or_name">Rumuz veya Email</string>
     <string name="login">Gir</string>
+    <string name="create_group">Grup Kur</string>
+    <string name="default_error_message">Birşeyler ters gitti</string>
 </resources>

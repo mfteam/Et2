@@ -25,4 +25,8 @@ public abstract class BaseFirebaseManager{
 
     protected abstract void setRefDb();
 
+    protected String giveMeKey() {
+        return mRef.push().getKey();
+    }
+
 }

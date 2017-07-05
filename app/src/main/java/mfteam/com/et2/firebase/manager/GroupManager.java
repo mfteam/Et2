@@ -21,6 +21,14 @@ public class GroupManager extends BaseFirebaseManager implements ManagerOperatio
         super();
     }
 
+    public GroupModel getDefaultGroupModel(){
+        GroupModel defaultGroup = new GroupModel();
+        defaultGroup.setKey("-KnEMRP1LOH__i7CNXkr");
+        defaultGroup.setAvatar("No avatar");
+        defaultGroup.setName("Default");
+        return defaultGroup;
+    }
+
     //Override stuff1
     @Override
     protected void setRefDb() {
@@ -41,14 +49,21 @@ public class GroupManager extends BaseFirebaseManager implements ManagerOperatio
 
     @Override
     public void insert(final GroupModel model, final FirebaseOperationListener<GroupModel> listener) {
-        mRef.push().setValue(model, new DatabaseReference.CompletionListener() {
+        final String key = giveMeKey();
+        mRef.child(key).setValue(model, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                if (databaseError != null){
+                if (databaseError == null){
+                    model.setKey(key);
                     listener.onSuccess(model);
                 }
             }
         });
+    }
+
+    public void insertUserGroup(){
+        DatabaseReference ugRef = mDb.child("userGroup");
+
     }
 
     @Override
