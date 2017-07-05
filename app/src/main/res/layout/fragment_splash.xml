@@ -26,26 +26,24 @@
             android:layout_alignParentStart="true"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/splash.facebook"
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/splash_facebook"
+                style="@style/FacebookLoginButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
-                android:background="@drawable/demofacebookbutton"
-                android:elevation="20dp"
-                android:text="@string/login_facebook"
-                android:onClick="@{viewModel.onClick}"
-                android:textColor="@color/color_white" />
+                android:onClick="@{viewModel.onClick}" />
 
             <Button
-                android:id="@+id/splash.twitter"
+                android:id="@+id/splash_twitter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
                 android:background="@drawable/demobuttontwitter"
                 android:elevation="20dp"
-                android:text="@string/login_twitter"
                 android:onClick="@{viewModel.onClick}"
+                android:text="@string/login_twitter"
                 android:textColor="@color/color_white" />
 
             <LinearLayout
@@ -54,28 +52,28 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/splash.signin"
+                    android:id="@+id/splash_signin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10sp"
                     android:layout_weight="1"
                     android:background="@drawable/demosigninbutton"
                     android:elevation="20dp"
-                    android:text="@string/login_signin"
                     android:onClick="@{viewModel.onClick}"
+                    android:text="@string/login_signin"
                     android:textColor="@color/color_white" />
 
                 <Button
-                    android:id="@+id/splash.signup"
+                    android:id="@+id/splash_signup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10sp"
                     android:layout_weight="1"
                     android:background="@drawable/demosigninbutton"
                     android:elevation="20dp"
-                    android:text="@string/login_register"
                     android:onClick="@{viewModel.onClick}"
-                    android:textColor="@color/color_white"></Button>
+                    android:text="@string/login_register"
+                    android:textColor="@color/color_white" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

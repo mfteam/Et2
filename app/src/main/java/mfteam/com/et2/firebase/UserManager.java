@@ -53,6 +53,9 @@ public class UserManager extends BaseFirebaseManager implements ManagerOperation
         mRef = mDb.child("users");
     }
 
+    public void loginWithFacebook(){
+    }
+
     public String giveMeKey() {
         return mRef.push().getKey();
     }

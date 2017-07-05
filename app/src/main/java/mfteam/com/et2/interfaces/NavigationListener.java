@@ -6,6 +6,6 @@ import mfteam.com.et2.view.BaseFragment;
  * Created by redugsi on 06/06/17.
  */
 
-public interface NavigationListener {
+public interface NavigationListener{
     void onChangeFragment(BaseFragment fragment);
 }

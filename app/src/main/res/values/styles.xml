@@ -17,4 +17,29 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="FacebookLoginButton">
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/demofacebookbutton</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+
+    <style name="Et2EditTextStyle">
+         <item name="android:layout_width">match_parent</item>
+         <item name="android:layout_height">wrap_content</item>
+         <item name="android:layout_marginTop">@dimen/edittext_margintop</item>
+         <item name="android:layout_marginBottom">@dimen/edittext_marginbottom</item>
+         <item name="android:layout_marginRight">@dimen/edittext_marginright</item>
+         <item name="android:layout_marginLeft">@dimen/edittext_marginleft</item>
+         <item name="android:minHeight">@dimen/edittext_marginminheight</item>
+         <item name="android:paddingLeft">@dimen/edittext_marginpaddingleft</item>
+         <item name="android:paddingRight">@dimen/edittext_marginpaddingright</item>
+         <item name="android:singleLine">true</item>
+         <item name="android:textColor">@color/color_white</item>
+         <item name="android:textCursorDrawable">@drawable/drawable_cursor</item>
+         <item name="android:background">@drawable/drawable_edittext</item>
+         <item name="android:imeOptions">actionNext</item>
+         <item name="android:textColorHint">@color/color_white</item>
+    </style>
+
 </resources>

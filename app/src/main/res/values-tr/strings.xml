@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="nick_name">Rumuz</string>
-    <string name="mail">e-posta</string>
-    <string name="password">Şifre</string>
+    <string name="register_name">İsim</string>
+    <string name="register_surname">Soyad</string>
+    <string name="register_nick_name">Rumuz</string>
+    <string name="register_mail">E-posta</string>
+    <string name="register_password">Şifre</string>
     <string name="register">Kayıt Ol!</string>
+    <string name="login_email_or_name">Rumuz veya Email</string>
     <string name="login">Gir</string>
 </resources>

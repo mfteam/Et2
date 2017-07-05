@@ -19,11 +19,11 @@ import mfteam.com.et2.viewmodel.BaseViewModel;
 
 public class RegisterViewModel extends BaseViewModel implements RegisterUserComplatedListener {
 
-    private ObservableField<String> mUserName = new ObservableField<>();
-    private ObservableField<String> mUserLastName = new ObservableField<>();
-    private ObservableField<String> mUserNick = new ObservableField<>("");
-    private ObservableField<String> mUserEmail = new ObservableField<>("");
-    private ObservableField<String> mUserPassword = new ObservableField<>("");
+    private ObservableField<String> userName = new ObservableField<>();
+    private ObservableField<String> userLastName = new ObservableField<>();
+    private ObservableField<String> userNick = new ObservableField<>("");
+    private ObservableField<String> userEmail = new ObservableField<>("");
+    private ObservableField<String> userPassword = new ObservableField<>("");
 
     private UserManager mUserManager;
     private RegisterListener mRegisterListener;
@@ -40,7 +40,7 @@ public class RegisterViewModel extends BaseViewModel implements RegisterUserComp
         return new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mUserName.set(s.toString());
+                userName.set(s.toString());
             }
         };
     }
@@ -49,7 +49,7 @@ public class RegisterViewModel extends BaseViewModel implements RegisterUserComp
         return new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mUserLastName.set(s.toString());
+                userLastName.set(s.toString());
             }
         };
     }
@@ -58,7 +58,7 @@ public class RegisterViewModel extends BaseViewModel implements RegisterUserComp
         return new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                mUserNick.set(charSequence.toString());
+                userNick.set(charSequence.toString());
             }
         };
     }
@@ -67,7 +67,7 @@ public class RegisterViewModel extends BaseViewModel implements RegisterUserComp
         return new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                mUserEmail.set(charSequence.toString());
+                userEmail.set(charSequence.toString());
             }
         };
     }
@@ -76,7 +76,7 @@ public class RegisterViewModel extends BaseViewModel implements RegisterUserComp
         return new SimpleTextWatcher() {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                mUserPassword.set(charSequence.toString());
+                userPassword.set(charSequence.toString());
             }
         };
     }
@@ -88,7 +88,7 @@ public class RegisterViewModel extends BaseViewModel implements RegisterUserComp
     //FireBase Stuff
     private void createNewUser() {
         if (mUserManager.isCurrentUser()){
-            if (mUserManager.registerUser(mUserEmail.get(),mUserPassword.get())){
+            if (mUserManager.registerUser(userEmail.get(),userPassword.get())){
                 updateUI(new User());
             }else{
                 mRegisterListener.onFailedRegister("");
@@ -97,16 +97,16 @@ public class RegisterViewModel extends BaseViewModel implements RegisterUserComp
     }
 
     private void updateUI(final User mNewUser) {
-        mNewUser.setmUserEmail(mUserEmail.get());
-        mNewUser.setmUserName(mUserNick.get());
-        mNewUser.setmUserPassword(mUserPassword.get());
-        mNewUser.setmUserLastName(mUserLastName.get());
+        mNewUser.setUserEmail(userEmail.get());
+        mNewUser.setUserName(userNick.get());
+        mNewUser.setUserPassword(userPassword.get());
+        mNewUser.setUserLastName(userLastName.get());
 
         if (mUserGetUuid != null) {
             mUserManager.insert(mNewUser,mUserGetUuid,new FirebaseOperationListener<User>() {
                 @Override
                 public void onSuccess(User model) {
-                    mUserManager.loginUser(mNewUser.getmUserEmail(),mNewUser.getmUserPassword());
+                    mUserManager.loginUser(mNewUser.getUserEmail(),mNewUser.getUserPassword());
                 }
 
                 @Override

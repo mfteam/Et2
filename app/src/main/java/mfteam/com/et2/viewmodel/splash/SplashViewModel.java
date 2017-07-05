@@ -1,17 +1,25 @@
 package mfteam.com.et2.viewmodel.splash;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
 import mfteam.com.et2.R;
+import mfteam.com.et2.firebase.UserManager;
 import mfteam.com.et2.interfaces.SplashOriantedListener;
 import mfteam.com.et2.view.login.FragmentSignIn;
 import mfteam.com.et2.view.register.FragmentSignUp;
 import mfteam.com.et2.viewmodel.BaseViewModel;
 
-public class SplashViewModel extends BaseViewModel {
+public class SplashViewModel extends BaseViewModel implements FacebookCallback<LoginResult> {
 
-    private SplashOriantedListener listener;
+    public SplashOriantedListener listener;
+    public UserManager mUserManager;
+    public CallbackManager mCallbackManager;
 
     public SplashViewModel(Context context,SplashOriantedListener listener) {
         super(context);
@@ -21,7 +29,7 @@ public class SplashViewModel extends BaseViewModel {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.splash_facebook:{
-                Toast.makeText(context, "Facebook", Toast.LENGTH_SHORT).show();
+                mCallbackManager = CallbackManager.Factory.create();
                 break;
             }
             case R.id.splash_twitter:{
@@ -37,5 +45,20 @@ public class SplashViewModel extends BaseViewModel {
                 break;
             }
         }
+    }
+
+    @Override
+    public void onSuccess(LoginResult loginResult) {
+        Log.d("Hakan","facebook:onSuccess" + loginResult);
+    }
+
+    @Override
+    public void onCancel() {
+
+    }
+
+    @Override
+    public void onError(FacebookException error) {
+
     }
 }
